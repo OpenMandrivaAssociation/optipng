@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc README.txt LICENSE.txt doc/*
 %{_bindir}/optipng
-%{_mandir}/man1/optipng.1.bz2
+%{_mandir}/man1/optipng.*
 
 
 
