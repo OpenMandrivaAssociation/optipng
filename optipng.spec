@@ -8,7 +8,6 @@ License:        zlib/libpng
 URL:            http://optipng.sourceforge.net/
 Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.bz2
 Patch0:         optipng-0.5.4-makefile-externlibs.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  zlib-devel libpng-devel
 
