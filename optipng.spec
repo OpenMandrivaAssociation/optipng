@@ -1,10 +1,10 @@
 Name:           optipng
 Version:        0.5.5
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        A PNG optimizer and converter
 
 Group:          Graphics
-License:        zlib/libpng
+License:        zlib
 URL:            http://optipng.sourceforge.net/
 Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.bz2
 Patch0:         optipng-0.5.4-makefile-externlibs.patch
@@ -32,16 +32,13 @@ cd src/
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 cd src/
 %make -f scripts/%{makefile} install DESTDIR="$RPM_BUILD_ROOT"\
                                     prefix="%{_prefix}" \
                                     man1dir="%{_mandir}/man1"
-
-
 %clean
-rm -rf $RPM_BUILD_ROOT
-
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
