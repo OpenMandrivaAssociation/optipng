@@ -1,14 +1,13 @@
 Name:           optipng
-Version:        0.5.5
-Release:        %mkrel 2
+Version:        0.6.1
+Release:        %mkrel 1
 Summary:        A PNG optimizer and converter
-
 Group:          Graphics
 License:        zlib
 URL:            http://optipng.sourceforge.net/
-Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.bz2
-Patch0:         optipng-0.5.4-makefile-externlibs.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.gz
+Patch0:         optipng-0.6.1-use-system-libs.patch
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  zlib-devel libpng-devel
 
@@ -21,22 +20,21 @@ integrity checks and corrections.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p0
 
 %define makefile gcc.mak
 
 %build
-cd src/
-%make -f scripts/%{makefile} %{?_smp_mflags} CFLAGS="$RPM_OPT_FLAGS"\
-                                            LDFLAGS="$RPM_OPT_FLAGS"
-
+./configure -with-system-zlib -with-system-libpng
+cd lib/pngxtern
+make -f scripts/gcc.mak CFLAGS="%{optflags} %{ldflags}"
+cd -
+%make CFLAGS="%{optflags} -I%{_includedir}" LDFLAGS="%{ldflags}"
 
 %install
 rm -rf %{buildroot}
-cd src/
-%make -f scripts/%{makefile} install DESTDIR="$RPM_BUILD_ROOT"\
-                                    prefix="%{_prefix}" \
-                                    man1dir="%{_mandir}/man1"
+%makeinstall_std prefix=%{_prefix} man1dir=%{_mandir}/man1
+
 %clean
 rm -rf %{buildroot}
 
@@ -45,6 +43,3 @@ rm -rf %{buildroot}
 %doc README.txt LICENSE.txt doc/*
 %{_bindir}/optipng
 %{_mandir}/man1/optipng.*
-
-
-
