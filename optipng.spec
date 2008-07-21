@@ -22,14 +22,12 @@ integrity checks and corrections.
 %setup -q
 %patch0 -p0
 
-%define makefile gcc.mak
-
 %build
 ./configure -with-system-zlib -with-system-libpng
 cd lib/pngxtern
 make -f scripts/gcc.mak CFLAGS="%{optflags} %{ldflags}"
 cd -
-%make CFLAGS="%{optflags} -I%{_includedir}" LDFLAGS="%{ldflags}"
+%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
 rm -rf %{buildroot}
