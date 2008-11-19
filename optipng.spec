@@ -1,5 +1,5 @@
 Name:           optipng
-Version:        0.6.1
+Version:        0.6.2
 Release:        %mkrel 1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
