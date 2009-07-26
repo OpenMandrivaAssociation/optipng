@@ -1,14 +1,13 @@
 Name:           optipng
-Version:        0.6.2
-Release:        %mkrel 2
+Version:        0.6.3
+Release:        %mkrel 1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
 License:        zlib
 URL:            http://optipng.sourceforge.net/
 Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.gz
 Patch0:         optipng-0.6.1-use-system-libs.patch
-# 0.6.2.1 security patch: http://optipng.sourceforge.net/
-Patch1:		optipng-0.6.2.1.diff
+Patch1:		optipng-0.6.3-fix-str-fmt.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  zlib-devel libpng-devel
@@ -23,7 +22,7 @@ integrity checks and corrections.
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p1
+%patch1 -p0
 
 %build
 ./configure -with-system-zlib -with-system-libpng
