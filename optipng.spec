@@ -6,7 +6,6 @@ Group:          Graphics
 License:        zlib
 URL:            http://optipng.sourceforge.net/
 Source0:        http://surfnet.dl.sourceforge.net/sourceforge/optipng/optipng-%{version}.tar.gz
-Patch0:         optipng-0.6.1-use-system-libs.patch
 BuildRequires:  zlib-devel libpng-devel
 
 %description
