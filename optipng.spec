@@ -6,7 +6,7 @@ Group:          Graphics
 License:        zlib
 URL:            http://optipng.sourceforge.net/
 Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/%{name}-%{version}/%{name}-%{version}.tar.gz
-BuildRequires:  zlib-devel libpng-devel
+BuildRequires:  pkgconfig(zlib) pkgconfig(libpng)
 
 %description
 OptiPNG is a PNG optimizer that recompresses image files to a smaller size,
