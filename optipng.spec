@@ -1,11 +1,11 @@
 Name:           optipng
-Version:        0.7.4
+Version:        0.7.5
 Release:        1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
 License:        zlib
 URL:            http://optipng.sourceforge.net/
-Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/%{name}-%{version}/%{name}-%{version}.tar.gz
+Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/optipng-0.7.5/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(zlib) pkgconfig(libpng)
 
 %description
