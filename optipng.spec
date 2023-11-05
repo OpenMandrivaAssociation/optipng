@@ -1,6 +1,6 @@
 Name:           optipng
-Version:        0.7.7
-Release:        3
+Version:        0.7.8
+Release:        1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
 License:        zlib
