@@ -4,7 +4,7 @@ Release:        1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
 License:        zlib
-URL:            http://optipng.sourceforge.net/
+URL:            https://optipng.sourceforge.net/
 Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/optipng-%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(zlib) 
 BuildRequires:  pkgconfig(libpng)
