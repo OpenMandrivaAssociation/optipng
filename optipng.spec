@@ -6,6 +6,11 @@ Group:          Graphics
 License:        zlib
 URL:            https://optipng.sourceforge.net/
 Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/optipng-%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig(zlib) 
 BuildRequires:  pkgconfig(libpng)
 
