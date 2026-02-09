@@ -1,14 +1,13 @@
 Name:           optipng
-Version:        0.7.8
+Version:        7.9.1
 Release:        1
 Summary:        A PNG optimizer and converter
 Group:          Graphics
 License:        zlib
 URL:            https://optipng.sourceforge.net/
-Source0:        http://sourceforge.net/projects/optipng/files/OptiPNG/optipng-%{version}/%{name}-%{version}.tar.gz
+Source0:        https://sourceforge.net/projects/optipng/files/OptiPNG/optipng-%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base
 BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:  pkgconfig(zlib) 
@@ -22,16 +21,16 @@ integrity checks and corrections.
 
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 ./configure -with-system-zlib -with-system-libpng
-%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
+%make_build CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
-%makeinstall_std prefix=%{_prefix} man1dir=%{_mandir}/man1
+%make_install prefix=%{_prefix} man1dir=%{_mandir}/man1
 
 %files
-%doc README.txt LICENSE.txt doc/*
+%doc LICENSE.txt doc/*
 %{_bindir}/optipng
 %{_mandir}/man1/optipng.*
